@@ -1,0 +1,15 @@
+---
+- name: install company packages
+  hosts: all
+  tasks:
+    - name: install package
+      when: ansible_os_family == "RedHat"
+      package:
+        name: "{{ item }}"
+      with_items:
+        - telnet
+        - bind-utils
+        - lftp
+        - elinks
+        - vsftpd
+        - httpd
