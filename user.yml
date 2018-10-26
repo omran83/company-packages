@@ -1,0 +1,15 @@
+---
+- name: add user
+  hosts: all
+  tasks:
+    - name: add users to RedHat family
+      when: ansible_os_family == "RedHat"
+      user:
+        name: "{{ item }}"
+      with_items:
+        - bob
+        - ben
+        - lola
+        - lisa
+        - bryan
+        - oliver
